@@ -1,11 +1,20 @@
--- maximize windows
+-- maximize window
 hs.hotkey.bind({'cmd', 'ctrl'}, 'up', function()
-    hs.window.focusedWindow():maximize()
+    curr_win = hs.window.focusedWindow()
+
+    if curr_win:isMaximizable() == true then
+        curr_win:maximize()
+    end
+
 end)
--- minimize
+-- minimize window
 hs.hotkey.bind({'cmd', 'ctrl'}, 'down', function()
-    minwin = hs.window.focusedWindow():minimize()
-    hs.alert.show(minwin)
+    curr_win = hs.window.focusedWindow()
+
+    if curr_win:isMinimized() == false then
+        curr_win:minimize()
+    end
+
 end)
 
 -- right/left half of screen

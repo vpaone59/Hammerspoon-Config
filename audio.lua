@@ -8,11 +8,11 @@ function check_headphone_connectivity()
     end
 end
 
-function get_device_name()
-    name = hs.audiodevice:name()
-    hs.alert.show(name)
-end
+-- function get_device_name()
+--     name = hs.audiodevice:name()
+--     hs.alert.show(name)
+-- end
 
 hs.audiodevice.watcher.setCallback(check_headphone_connectivity)
-hs.audiodevice.watcher.setCallback(get_device_name)
+-- hs.audiodevice.watcher.setCallback(get_device_name)
 hs.audiodevice.watcher.start()
