@@ -17,14 +17,6 @@ hs.hotkey.bind({'cmd', 'ctrl'}, 'down', function()
 
 end)
 
--- right/left half of screen
-hs.hotkey.bind({'cmd', 'ctrl'}, 'left', function()
-    hs.window.focusedWindow():moveToUnit({0, 0, 0.5, 1})
-end)
-hs.hotkey.bind({'cmd', 'ctrl'}, 'right', function()
-    hs.window.focusedWindow():moveToUnit({0.5, 0, 0.5, 1})
-end)
-
 -- middle of the screen
 -- shrink
 hs.hotkey.bind({'cmd', 'ctrl'}, 'N', function()
@@ -33,4 +25,31 @@ end)
 -- normal size
 hs.hotkey.bind({'cmd', 'ctrl'}, 'M', function()
     hs.window.focusedWindow():moveToUnit({0.06, 0.04, 0.88, 0.9})
+end)
+
+-- right/left half of screen
+hs.hotkey.bind({'cmd', 'ctrl'}, 'left', function()
+    hs.window.focusedWindow():moveToUnit({0, 0, 0.5, 1})
+end)
+hs.hotkey.bind({'cmd', 'ctrl'}, 'right', function()
+    hs.window.focusedWindow():moveToUnit({0.5, 0, 0.5, 1})
+end)
+
+-- quadrants
+-- top left
+hs.hotkey.bind({'cmd', 'ctrl'}, 'k', function()
+    hs.window.focusedWindow():moveToUnit({0, 0, 0.5, 0.5})
+end)
+-- bottom left
+hs.hotkey.bind({'cmd', 'ctrl'}, ',', function()
+    hs.window.focusedWindow():moveToUnit({0, 0.5, 0.5, 0.5})
+end)
+
+-- top right
+hs.hotkey.bind({'cmd', 'ctrl'}, 'l', function()
+    hs.window.focusedWindow():moveToUnit({0.5, 0, 0.5, 0.5})
+end)
+-- bottom right
+hs.hotkey.bind({'cmd', 'ctrl'}, '.', function()
+    hs.window.focusedWindow():moveToUnit({0.5, 0.5, 0.5, 0.5})
 end)

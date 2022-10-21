@@ -5,6 +5,7 @@ workSSID = "RowanSecure"
 lastSSID = hs.wifi.currentNetwork()
 
 function ssidChange()
+
     newSSID = hs.wifi.currentNetwork()
     if newSSID == homeSSID then
         -- if connected to home
@@ -15,20 +16,19 @@ function ssidChange()
         hs.alert.show(newSSID .. " wifi disc. !!")
 
     elseif newSSID == workSSID then
-        -- if disconnected from any network
+        -- if connected to 
         hs.alert.show(newSSID .. " wifi disc, vol 0")
         hs.audiodevice.defaultOutputDevice():setVolume(0)
     else
         hs.alert.show(newSSID .. "NO WIFI !")
     end
-    -- is_wifi_on()
     lastSSID = newSSID
 end
 
 -- check if wifi is currently on
 function is_wifi_on()
     wifi_check = hs.wifi.interfaceDetails()
-    hs.alert.show(wifi_check)
+    hs.alert.show(wifi_check[0])
 end
 
 -- check current wifi and return the SSID
