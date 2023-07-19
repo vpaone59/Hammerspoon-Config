@@ -1,0 +1,43 @@
+-- function setDefaultBrowser(appFileName, notify)
+--     local logger = hs.logger.new('defbr', 5)
+--     local app = hs.application.open('com.apple.systempreferences')
+--     local axapp = hs.axuielement.applicationElement(app)
+--     -- Attempt to open the menu until it successfully opens (returns true)
+--     hs.timer.waitUntil(function()
+--         return app:selectMenuItem({'View', 'General'})
+--     end, function()
+--         print('General group opened.')
+--         findPopup()
+--     end)
+--     function findPopup()
+--         local dwbPopup = nil
+--         -- Attempt to find the popup (combo box)
+--         hs.timer.doUntil(function()
+--             return dwbPopup
+--         end, function()
+--             axapp:elementSearch(function(msg, results)
+--                 if results then
+--                     dwbPopup = results[1]
+--                 end
+--             end, function(e)
+--                 return e:attributeValue('AXDescription') == 'Default Web Browser popup'
+--             end)
+--         end)
+--         hs.timer.waitUntil(function()
+--             return dwbPopup
+--         end, function()
+--             print('Popup found.')
+--             chooseAppFileName(dwbPopup)
+--         end)
+--     end
+--     function chooseAppFileName(dwbPopup)
+--         dwbPopup:performAction('AXShowMenu')
+--         dwbPopup:elementSearch(function(msg, results)
+--             local item = results[1]
+--             item:performAction('AXPress')
+--             notify()
+--         end, function(e)
+--             return e:attributeValue('AXTitle') == appFileName
+--         end)
+--     end
+-- end
