@@ -1,23 +1,21 @@
--- maximize window
+-- Window arrangement keybinds
+-- Maximize Window
 hs.hotkey.bind({'cmd', 'ctrl'}, 'up', function()
     curr_win = hs.window.focusedWindow()
-
     if curr_win:isMaximizable() == true then
         curr_win:maximize()
     end
-
 end)
--- minimize window
+
+-- Minimize Window
 hs.hotkey.bind({'cmd', 'ctrl'}, 'down', function()
     curr_win = hs.window.focusedWindow()
-
     if curr_win:isMinimized() == false then
         curr_win:minimize()
     end
-
 end)
 
--- middle of the screen
+-- Center of the screen
 -- shrink
 hs.hotkey.bind({'cmd', 'ctrl'}, 'N', function()
     hs.window.focusedWindow():moveToUnit({0.15, 0.1, 0.7, 0.8})
@@ -27,7 +25,7 @@ hs.hotkey.bind({'cmd', 'ctrl'}, 'M', function()
     hs.window.focusedWindow():moveToUnit({0.06, 0.04, 0.88, 0.9})
 end)
 
--- right/left half of screen
+-- left / right half of screen
 hs.hotkey.bind({'cmd', 'ctrl'}, 'left', function()
     hs.window.focusedWindow():moveToUnit({0, 0, 0.5, 1})
 end)
@@ -35,7 +33,21 @@ hs.hotkey.bind({'cmd', 'ctrl'}, 'right', function()
     hs.window.focusedWindow():moveToUnit({0.5, 0, 0.5, 1})
 end)
 
--- quadrants
+-- Left | Middle | Right configuration
+-- left
+hs.hotkey.bind({'cmd', 'ctrl'}, '[', function()
+    hs.window.focusedWindow():moveToUnit({0, 0, 0.33, 1})
+end)
+-- middle
+hs.hotkey.bind({'cmd', 'ctrl'}, '=', function()
+    hs.window.focusedWindow():moveToUnit({0.33, 0, 0.34, 1})
+end)
+-- right
+hs.hotkey.bind({'cmd', 'ctrl'}, ']', function()
+    hs.window.focusedWindow():moveToUnit({0.67, 0, 0.33, 1})
+end)
+
+-- Quadrants
 -- top left
 hs.hotkey.bind({'cmd', 'ctrl'}, 'k', function()
     hs.window.focusedWindow():moveToUnit({0, 0, 0.5, 0.5})

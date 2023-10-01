@@ -12,8 +12,8 @@ function reloadConfig(files)
     end
 end
 myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
-hs.alert.show("Config loaded", .5)
+hs.alert.show("Config loaded", .25)
 
-require('wifi')
-require('audio')
-require('window')
+require('/configs/wifi')
+-- require('audio')
+require('/configs/window')
